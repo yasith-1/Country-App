@@ -12,7 +12,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0jdOH4rRLi30IEWvkXPzWyxkVjDCs_lMp6Q&s" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0jdOH4rRLi30IEWvkXPzWyxkVjDCs_lMp6Q&s"
+        type="image/x-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -36,7 +38,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <div class="bg-secondary text-white p-5" style="height: 500px;">
+                    <div class="text-white p-5" style="height: 500px;" id="heroImag1">
                         <div class="container h-100 d-flex flex-column justify-content-center">
                             <h1 class="display-4 fw-bold">World Wide Information</h1>
                             <p class="lead">Explore countries from around the world and discover fascinating facts</p>
@@ -49,7 +51,7 @@
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <div class="bg-primary text-white p-5" style="height: 500px;">
+                    <div class="text-white p-5" style="height: 500px;" id="heroImag2">
                         <div class="container h-100 d-flex flex-column justify-content-center">
                             <h1 class="display-4 fw-bold">Global Knowledge</h1>
                             <p class="lead">Learn about languages, currencies, populations, and more</p>
@@ -61,7 +63,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="bg-success text-white p-5" style="height: 500px;">
+                    <div class="text-white p-5" style="height: 500px;" id="heroImag3">
                         <div class="container h-100 d-flex flex-column justify-content-center">
                             <h1 class="display-4 fw-bold">Compare Countries</h1>
                             <p class="lead">Compare statistics between countries and see how they stack up</p>
@@ -89,8 +91,9 @@
         <div class="container">
             <div class="search-container">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search for a country..." id="search-input" onkeypress="traceTextField()">
-                    <button class="btn btn-primary" type="button" id="search-button" >
+                    <input type="text" class="form-control" placeholder="Search for a country..." id="search-input"
+                        onkeypress="traceTextField()">
+                    <button class="btn btn-primary" type="button" id="search-button">
                         <i class="bi bi-search"></i> Search
                     </button>
                 </div>

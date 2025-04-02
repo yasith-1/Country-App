@@ -45,3 +45,66 @@
         transform: rotate(360deg);
     }
 }
+
+/* Hero image */
+#heroImag1{
+    background-image: url("/images/heroImage1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    z-index: 1000;
+}
+
+/* Hero image */
+#heroImag2{
+    background-image: url("/images/heroImage2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    z-index: 1000;
+}
+
+/* Hero image */
+#heroImag3{
+    background-image: url("/images/heroImage3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    z-index: 1000;
+}
+
+/* Default styling (for small & medium screens) */
+#heroImag1, #heroImag2, #heroImag3 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    z-index: 1000;
+    height: 300px; /* Default height */
+}
+
+/* Default: Hide images on XS, SM, and MD screens (less than 992px) */
+#heroImag1, #heroImag2, #heroImag3 {
+    display: none;
+}
+
+/* Large screens (≥992px) */
+@media (min-width: 992px) {
+    #heroImag1, #heroImag2, #heroImag3 {
+        display: block;
+        height: 500px; /* Increase height */
+        background-size: cover; /* Cover the whole area */
+    }
+}
+
+/* Extra-large screens (≥1200px) */
+@media (min-width: 1200px) {
+    #heroImag1, #heroImag2, #heroImag3 {
+        display: block;
+        height: 700px; /* Further increase height */
+        background-size: cover;
+    }
+}
