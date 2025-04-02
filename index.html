@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coutries</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0jdOH4rRLi30IEWvkXPzWyxkVjDCs_lMp6Q&s" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Main header -->
+    <section>
+        <div class="bg-dark sticky-top py-4">
+            <h3 class="text-light text-center">ALL INFO ABOUT COUNTRIES</h3>
+        </div>
+    </section>
+
+    <!-- Hero Section with Carousel -->
+    <section>
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="bg-secondary text-white p-5" style="height: 500px;">
+                        <div class="container h-100 d-flex flex-column justify-content-center">
+                            <h1 class="display-4 fw-bold">World Wide Information</h1>
+                            <p class="lead">Explore countries from around the world and discover fascinating facts</p>
+                            <div class="mt-4">
+                                <button class="btn btn-primary btn-lg me-4" id="explore-btn">Explore Countries</button>
+                                <button class="btn btn-outline-light btn-lg" id="random-country-btn">Random
+                                    Country</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <div class="bg-primary text-white p-5" style="height: 500px;">
+                        <div class="container h-100 d-flex flex-column justify-content-center">
+                            <h1 class="display-4 fw-bold">Global Knowledge</h1>
+                            <p class="lead">Learn about languages, currencies, populations, and more</p>
+                            <div class="mt-4">
+                                <button class="btn btn-light btn-lg me-2" id="stats-btn">Global Statistics</button>
+                                <button class="btn btn-outline-light btn-lg" id="map-btn">Interactive Map</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-success text-white p-5" style="height: 500px;">
+                        <div class="container h-100 d-flex flex-column justify-content-center">
+                            <h1 class="display-4 fw-bold">Compare Countries</h1>
+                            <p class="lead">Compare statistics between countries and see how they stack up</p>
+                            <div class="mt-4">
+                                <button class="btn btn-dark btn-lg me-2" id="compare-btn">Compare Tool</button>
+                                <button class="btn btn-outline-light btn-lg" id="quiz-btn">Geography Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="search-container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search for a country..." id="search-input" onkeypress="traceTextField()">
+                    <button class="btn btn-primary" type="button" id="search-button" >
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Region Filter Section -->
+    <!-- <section class="py-3">
+        <div class="container">
+            <div class="d-flex justify-content-center flex-wrap mb-3">
+                <button class="btn btn-outline-primary m-1 region-filter" data-region="all">All Regions</button>
+                <button class="btn btn-outline-primary m-1 region-filter" data-region="Africa" onclick="loadAfricanCountries('Africa')">Africa</button>
+                <button class="btn btn-outline-primary m-1 region-filter" data-region="Americas">Americas</button>
+                <button class="btn btn-outline-primary m-1 region-filter" data-region="Asia">Asia</button>
+                <button class="btn btn-outline-primary m-1 region-filter" data-region="Europe">Europe</button>
+                <button class="btn btn-outline-primary m-1 region-filter" data-region="Oceania">Oceania</button>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Countries Section -->
+    <section class="py-5">
+        <div class="container px-lg-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Explore Countries</h2>
+                <p class="lead text-muted">Discover information about countries from all around the world</p>
+            </div>
+
+            <!-- Loading indicator -->
+            <!-- <div id="loader" class="loader"></div> -->
+
+            <!-- Countries grid -->
+            <div class="row justify-content-center g-4 px-3" id="countries-container">
+
+                <!-- Country cards -->
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Country Modal -->
+    <div class="modal fade" id="country-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">More Info !</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="countryModalBody">
+                    <!--  modal data load here -->
+                </div>
+                <div class="modal-footer">
+                    <div class="row col-12" id="modal-footer-btn">
+                        <!-- Modal footer -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section with Cards -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Explore Our Features</h2>
+                <p class="lead text-muted">Comprehensive tools to learn about countries around the world</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="bi bi-globe-americas text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4 class="card-title">Global Database</h4>
+                            <p class="card-text">Access information about all countries with comprehensive details about
+                                geography, demographics, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="bi bi-bar-chart-fill text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4 class="card-title">Compare Statistics</h4>
+                            <p class="card-text">Compare key statistics between multiple countries to understand global
+                                patterns and differences.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="bi bi-map text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4 class="card-title">Interactive Maps</h4>
+                            <p class="card-text">Visualize country locations, borders, and territories with our
+                                interactive mapping tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Global Statistics</h2>
+                <p class="lead text-muted">Key metrics about our world at a glance</p>
+            </div>
+            <div class="row g-4" id="statistics-container">
+                <div class="col-md-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="text-primary fw-bold" id="total-countries">Loading...</h3>
+                            <p class="text-muted">Total Countries</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="text-primary fw-bold" id="total-population">Loading...</h3>
+                            <p class="text-muted">Global Population</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="text-primary fw-bold" id="total-languages">Loading...</h3>
+                            <p class="text-muted">Languages Spoken</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="text-primary fw-bold" id="total-currencies">Loading...</h3>
+                            <p class="text-muted">World Currencies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">World Map</h2>
+                <p class="lead text-muted">Interactive map coming soon. Browse countries by region</p>
+            </div>
+            <div id="map-container" class="shadow-sm rounded">
+                <!-- Map will be loaded here -->
+                <div class="p-5 text-center">
+                    <p class="mb-4">Interactive world map will be integrated in future updates.</p>
+                    <button class="btn btn-primary" id="load-map-btn">View Region Breakdown</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>ALL INFO ABOUT COUNTRIES</h5>
+                    <p>Your comprehensive guide to countries worldwide. Data provided by the REST Countries API.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Explore</a></li>
+                        <li><a href="#" class="text-white">Compare</a></li>
+                        <li><a href="#" class="text-white">Statistics</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope me-2"></i> info@countries-info.com</li>
+                        <li><i class="bi bi-telephone me-2"></i> +1 234 567 8900</li>
+                        <li><i class="bi bi-geo-alt me-2"></i> Global Headquarters</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 All Info About Countries. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- app.js -->
+    <script src="js/app.js"></script>
+
+    <!-- Boostrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

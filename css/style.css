@@ -1,0 +1,47 @@
+.country-card {
+    transition: transform 0.3s;
+    height: 100%;
+}
+
+.country-card:hover {
+    transform: translateY(-5px);
+}
+
+.flag-img {
+    height: 160px;
+    object-fit: cover;
+}
+
+#map-container {
+    height: 400px;
+    width: 100%;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.region-filter {
+    cursor: pointer;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
